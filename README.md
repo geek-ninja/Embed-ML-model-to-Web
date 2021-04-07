@@ -14,6 +14,12 @@
 <p>Adjust the setting.py file in django so that you can integrate the template with the django view.py </p>
 <p>Similar way you can add your model and adjust the webiste too.</p>
 
+<h3>Important python module</h3>
+<p>joblib</p>
+<p> pip3 install joblib</p>
+<p>This module will convert the python Ml model to sav file which can be further used in django-website to predict result</p>
+<br><br>
+
 <h2>Screenshot</h2>
 <h3>Input page</h3>
 
