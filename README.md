@@ -20,8 +20,8 @@
 <p>This module will convert the python Ml model to sav file which can be further used in django-website to predict result</p>
 <br><br>
 
-<h2>Machine Learning mode used</h2>
-<p>random forest</p>
+<h2>Machine Learning model used</h2>
+<p>random forest (model.py)</p>
 
 ```python
 
