@@ -20,7 +20,41 @@
 <p>This module will convert the python Ml model to sav file which can be further used in django-website to predict result</p>
 <br><br>
 
-<h2>Code Snippet</h2>
+<h2>Machine Learning mode used</h2>
+<p>random forest</p>
+
+```python
+
+import numpy as np
+import pandas as pd
+import joblib
+
+dataset = pd.read_csv('glass.csv')
+
+x = dataset.iloc[:,:-1]
+y = dataset.iloc[:,9]
+
+from sklearn.model_selection import train_test_split
+x_train,x_test,y_train,y_test = train_test_split(x,y,test_size = 0.20,random_state = 42)
+
+from sklearn.preprocessing import StandardScaler
+sc_x = StandardScaler()
+x_train = sc_x.fit_transform(x_train)
+x_test = sc_x.transform(x_test)
+
+from sklearn.ensemble import RandomForestClassifier
+
+clss = RandomForestClassifier(criterion='entropy',n_estimators=300,random_state=42)
+clss.fit(x_train,y_train)
+
+print('accuracy is ', clss.score(x_test,y_test)*100,'%')
+
+#saving the model
+filename = 'finalized_model.sav'
+joblib.dump(clss,filename)
+```
+
+<h2>Code Snippet used in django views</h2>
 <p>view.py</p>
 
 ```python
